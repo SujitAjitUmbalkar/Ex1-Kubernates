@@ -4,7 +4,7 @@ kind: Deployment
 # Information about the Deployment
 metadata:
   name: myapp-deployment
-  namespace: prod
+  namespace: default
 
 spec:
   replicas: 3
@@ -34,3 +34,14 @@ spec:
           # Port exposed by the container
           ports:
             - containerPort: 80
+
+          # Mount PVC inside the container
+          volumeMounts:
+            - name: data
+              mountPath: /data
+
+      # Connect the Pod to the PVC
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: mypvc
