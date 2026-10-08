@@ -20,7 +20,7 @@ spec:
 
     spec:
       containers:
-        - name: myapp
+        - name: myapp-created-from-replicaset-file
           image: nginx:latest
           ports:
             - containerPort: 80
