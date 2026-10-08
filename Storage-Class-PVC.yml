@@ -1,0 +1,15 @@
+apiVersion: v1 
+kind: PersistentVolumeClaim 
+ 
+metadata: 
+  name: dynamic-pvc 
+ 
+spec: 
+  storageClassName: fast-storage   # Ask this StorageClass to provision storage 
+ 
+  accessModes: 
+    - ReadWriteOnce 
+ 
+  resources: 
+    requests: 
+      storage: 1Gi             # Request 1Gi of storage 
